@@ -23,7 +23,8 @@ def friends(user, passwd):
     #the first one is always yourself
     friends = []
     for link in links:
-        friends.append(str(BeautifulSoup(str(link)).a.contents))
+        if link is not "http://www.reddit.com/user/%s" % user:
+            friends.append(str(BeautifulSoup(str(link)).a.contents))
     return friends
 
 
